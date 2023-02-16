@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>ABC Learning Center | Online Learning for Education</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="ABC Learning Center - Online Learning for Education">
+    <meta name="keywords" content="abc learning, education, abc learning center">
+    <meta name="author" content="ABC Learning Center">
+
+    <!-- Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Vendor Styles -->
+    <link rel="stylesheet" media="screen" href="assets/vendor/boxicons/css/boxicons.min.css"/>
+    <link rel="stylesheet" media="screen" href="assets/vendor/swiper/swiper-bundle.min.css"/>
+
+    <!-- Main Theme Styles + Bootstrap -->
+    <link rel="stylesheet" media="screen" href="assets/css/theme.min.css">
+
+    <!-- Page loading styles -->
+    <style>
+      .page-loading {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all .4s .2s ease-in-out;
+        transition: all .4s .2s ease-in-out;
+        background-color: #fff;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 9999;
+      }
+      .dark-mode .page-loading {
+        background-color: #0b0f19;
+      }
+      .page-loading.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .page-loading-inner {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-transition: opacity .2s ease-in-out;
+        transition: opacity .2s ease-in-out;
+        opacity: 0;
+      }
+      .page-loading.active > .page-loading-inner {
+        opacity: 1;
+      }
+      .page-loading-inner > span {
+        display: block;
+        font-size: 1rem;
+        font-weight: normal;
+        color: #9397ad;
+      }
+      .dark-mode .page-loading-inner > span {
+        color: #fff;
+        opacity: .6;
+      }
+      .page-spinner {
+        display: inline-block;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-bottom: .75rem;
+        vertical-align: text-bottom;
+        border: .15em solid #b4b7c9;
+        border-right-color: transparent;
+        border-radius: 50%;
+        -webkit-animation: spinner .75s linear infinite;
+        animation: spinner .75s linear infinite;
+      }
+      .dark-mode .page-spinner {
+        border-color: rgba(255,255,255,.4);
+        border-right-color: transparent;
+      }
+      @-webkit-keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+
+    <!-- Theme mode -->
+    <script>
+      let mode = window.localStorage.getItem('mode'),
+          root = document.getElementsByTagName('html')[0];
+      if (mode !== null && mode === 'dark') {
+        root.classList.add('dark-mode');
+      } else {
+        root.classList.remove('dark-mode');
+      }
+    </script>
+
+    <!-- Page loading scripts -->
+    <script>
+      (function () {
+        window.onload = function () {
+          const preloader = document.querySelector('.page-loading');
+          preloader.classList.remove('active');
+          setTimeout(function () {
+            preloader.remove();
+          }, 1000);
+        };
+      })();
+    </script>
+  </head>
+
+
+  <!-- Body -->
+  <body>
+    
+    <!-- Page loading spinner -->
+    <div class="page-loading active">
+      <div class="page-loading-inner">
+        <div class="page-spinner"></div><span>Loading...</span>
+      </div>
+    </div>
+
+    <!-- Page wrapper for sticky footer -->
+    <main class="page-wrapper">
+
+
+      <!-- Navbar -->
+      <header class="header navbar navbar-expand-lg bg-light navbar-sticky">
+        <div class="container px-3">
+          <a href="index.html" class="navbar-brand pe-3">
+            ABC Learning
+          </a>
+          <div id="navbarNav" class="offcanvas offcanvas-end">
+            <div class="offcanvas-header border-bottom">
+              <h5 class="offcanvas-title">Menu</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                  <a href="index.html" class="nav-link" aria-current="page">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a href="about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Course</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="detail-courses.html" class="dropdown-item">Web Development</a></li>
+                    <li><a href="detail-courses.html" class="dropdown-item">Programming in Java</a></li>
+                    <li><a href="detail-courses.html" class="dropdown-item">Software Engineering</a></li>
+                    <li><a href="detail-courses.html" class="dropdown-item">MS. Office</a></li>
+                    <li><a href="detail-courses.html" class="dropdown-item">Mobile Development</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+              </ul>
+            </div>
+            <div class="offcanvas-header border-top">
+              <a href="signin.html" class="btn btn-primary w-100" target="_blank" rel="noopener">
+                Login
+              </a>
+            </div>      
+          </div>
+          <div class="form-check form-switch mode-switch pe-lg-1 ms-auto me-4" data-bs-toggle="mode">
+            <input type="checkbox" class="form-check-input" id="theme-mode">
+            <label class="form-check-label d-none d-sm-block" for="theme-mode">Light</label>
+            <label class="form-check-label d-none d-sm-block" for="theme-mode">Dark</label>
+          </div>
+          <button type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a href="signin.html" class="btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex" target="_blank" rel="noopener">
+            Login
+          </a>
+        </div>
+      </header>
+
+      <!-- Sitemap -->
+      <section class="position-relative py-5">
+        <div class="container position-relative zindex-5 py-2 py-md-4 py-lg-5">
+          <div class="row justify-content-center text-center pt-xl-2 pb-4 mb-1 mb-lg-3">
+            <div class="col-xl-6 col-lg-7 col-md-8 col-sm-11">
+              <h2 class="mb-4">Sitemap</h2>
+            </div>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-10">
+              <h4>Local Homepages</h4>
+              <ul>
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="all-courses.html" class="nav-link">All Course</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="privacy-policy.html" class="nav-link">Privacy & Policy</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-4 col-md-10">
+              <h4>Popular Course</h4>
+              <ul>
+                <li><a href="all-courses.html" class="nav-link">All Course</a></li>
+                <li><a href="detail-courses.html" class="nav-link">Web Development</a></li>
+                <li><a href="detail-courses.html" class="nav-link">Programming in Java</a></li>
+                <li><a href="detail-courses.html" class="nav-link">Software Engineering</a></li>
+                <li><a href="detail-courses.html" class="nav-link">Ms.Office</a></li>
+                <li><a href="detail-courses.html" class="nav-link">Mobile Development</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-4 col-md-10">
+              <h4>Account</h4>
+              <ul>
+                <li><a href="signin.html" class="nav-link">Sign In</a></li>
+                <li><a href="signup.html" class="nav-link">Sign Up</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- BG shape -->
+        <div class="position-absolute end-0 bottom-0 text-primary">
+          <svg width="469" height="343" viewBox="0 0 469 343" fill="none" xmlns="http://www.w3.org/2000/svg"><path opacity="0.08" fill-rule="evenodd" clip-rule="evenodd" d="M273.631 680.872C442.436 768.853 639.315 708.216 717.593 558.212C795.871 408.208 732.941 212.157 564.137 124.176C395.333 36.195 198.453 96.8326 120.175 246.836C41.8972 396.84 104.827 592.891 273.631 680.872ZM236.335 752.344C440.804 858.914 688.289 788.686 789.109 595.486C889.928 402.286 805.903 159.274 601.433 52.7043C396.964 -53.8654 149.479 16.3623 48.6595 209.562C-52.1598 402.762 31.8652 645.774 236.335 752.344Z" fill="currentColor"/><path opacity="0.08" fill-rule="evenodd" clip-rule="evenodd" d="M298.401 633.404C434.98 704.59 598.31 656.971 664.332 530.451C730.355 403.932 675.946 242.827 539.367 171.642C402.787 100.457 239.458 148.076 173.435 274.595C107.413 401.114 161.822 562.219 298.401 633.404ZM288.455 652.464C434.545 728.606 611.369 678.429 683.403 540.391C755.437 402.353 695.402 228.725 549.312 152.583C403.222 76.4404 226.398 126.617 154.365 264.655C82.331 402.693 142.365 576.321 288.455 652.464Z" fill="currentColor"/></svg>
+        </div>
+      </section>
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="footer py-5">
+      <div class="container text-center pt-2 pt-sm-3">
+        <div class="navbar-brand d-inline-block text-dark p-0 me-0 mb-4 pb-md-2">
+          ABC Learning
+        </div>
+        <ul class="nav align-items-center justify-content-center mb-4 pb-1 pb-md-3">
+          <li class="nav-item mx-lg-1 px-md-2">
+            <a href="index.html" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item mx-lg-1 px-md-2">
+            <a href="about.html" class="nav-link">About</a>
+          </li>
+          <li class="nav-item mx-lg-1 px-md-2">
+            <a href="sitemap.html" class="nav-link">Sitemap</a>
+          </li>
+          <li class="nav-item mx-lg-1 px-md-2">
+            <a href="privacy-policy.html" class="nav-link">Privacy & Policy</a>
+          </li>
+          <li class="nav-item mx-lg-1 px-md-2">
+            <a href="contact.html" class="nav-link">Contact</a>
+          </li>
+          <li class="nav-item mx-lg-1 px-md-2">
+            <a href="signin.html" class="nav-link">Account</a>
+          </li>
+        </ul>
+        <div class="d-inline-block mt-n3 ms-n3 pb-2 pb-md-3 mb-4 mb-lg-5">
+          <a href="#" class="btn btn-icon btn-secondary btn-facebook mt-3 ms-3">
+            <i class="bx bxl-facebook-square"></i>
+          </a>
+          <a href="#" class="btn btn-icon btn-secondary btn-twitter mt-3 ms-3">
+            <i class="bx bxl-twitter"></i>
+          </a>
+          <a href="#" class="btn btn-icon btn-secondary btn-instagram mt-3 ms-3">
+            <i class="bx bxl-instagram"></i>
+          </a>
+          <a href="#" class="btn btn-icon btn-secondary btn-youtube mt-3 ms-3">
+            <i class="bx bxl-youtube"></i>
+          </a>
+        </div>
+        <p class="mb-0 mx-auto fs-sm text-muted" style="max-width: 53.5rem">&copy; All rights reserved. Lorem odio justo malesuada suspendisse viverra aliquet quisque turpis non. Feugiat in odio non nunc ornare consectetur.</p>
+      </div>
+    </footer>
+
+
+    <!-- Back to top button -->
+    <a href="#top" class="btn-scroll-top" data-scroll>
+      <span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span>
+      <i class="btn-scroll-top-icon bx bx-chevron-up"></i>
+    </a>
+
+
+    <!-- Vendor Scripts -->
+    <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="assets/vendor/jarallax/dist/jarallax.min.js"></script>
+    <script src="assets/vendor/@lottiefiles/lottie-player/dist/lottie-player.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/cleave.js/dist/cleave.min.js"></script>
+
+    <!-- Main Theme Script -->
+    <script src="assets/js/theme.min.js"></script>
+  </body>
+</html>
