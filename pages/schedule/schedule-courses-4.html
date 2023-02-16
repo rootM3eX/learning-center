@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>ABC Learning Center | Online Learning for Education</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="ABC Learning Center - Online Learning for Education">
+    <meta name="keywords" content="abc learning, education, abc learning center">
+    <meta name="author" content="ABC Learning Center">
+
+    <!-- Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Vendor Styles -->
+    <link rel="stylesheet" media="screen" href="../../assets/vendor/boxicons/css/boxicons.min.css"/>
+    <link rel="stylesheet" media="screen" href="../../assets/vendor/swiper/swiper-bundle.min.css"/>
+
+    <!-- Main Theme Styles + Bootstrap -->
+    <link rel="stylesheet" media="screen" href="../../assets/css/theme.min.css">
+
+    <!-- Page loading styles -->
+    <style>
+      .page-loading {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all .4s .2s ease-in-out;
+        transition: all .4s .2s ease-in-out;
+        background-color: #fff;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 9999;
+      }
+      .dark-mode .page-loading {
+        background-color: #0b0f19;
+      }
+      .page-loading.active {
+        opacity: 1;
+        visibility: visible;
+      }
+      .page-loading-inner {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+        -webkit-transition: opacity .2s ease-in-out;
+        transition: opacity .2s ease-in-out;
+        opacity: 0;
+      }
+      .page-loading.active > .page-loading-inner {
+        opacity: 1;
+      }
+      .page-loading-inner > span {
+        display: block;
+        font-size: 1rem;
+        font-weight: normal;
+        color: #9397ad;
+      }
+      .dark-mode .page-loading-inner > span {
+        color: #fff;
+        opacity: .6;
+      }
+      .page-spinner {
+        display: inline-block;
+        width: 2.75rem;
+        height: 2.75rem;
+        margin-bottom: .75rem;
+        vertical-align: text-bottom;
+        border: .15em solid #b4b7c9;
+        border-right-color: transparent;
+        border-radius: 50%;
+        -webkit-animation: spinner .75s linear infinite;
+        animation: spinner .75s linear infinite;
+      }
+      .dark-mode .page-spinner {
+        border-color: rgba(255,255,255,.4);
+        border-right-color: transparent;
+      }
+      @-webkit-keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes spinner {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+
+    <!-- Theme mode -->
+    <script>
+      let mode = window.localStorage.getItem('mode'),
+          root = document.getElementsByTagName('html')[0];
+      if (mode !== null && mode === 'dark') {
+        root.classList.add('dark-mode');
+      } else {
+        root.classList.remove('dark-mode');
+      }
+    </script>
+
+    <!-- Page loading scripts -->
+    <script>
+      (function () {
+        window.onload = function () {
+          const preloader = document.querySelector('.page-loading');
+          preloader.classList.remove('active');
+          setTimeout(function () {
+            preloader.remove();
+          }, 1000);
+        };
+      })();
+    </script>
+  </head>
+
+
+  <!-- Body -->
+  <body>
+    
+    <!-- Page loading spinner -->
+    <div class="page-loading active">
+      <div class="page-loading-inner">
+        <div class="page-spinner"></div><span>Loading...</span>
+      </div>
+    </div>
+
+
+    <!-- Page wrapper for sticky footer -->
+    <main class="page-wrapper">
+
+
+      <!-- Navbar -->
+      <header class="header navbar navbar-expand-lg bg-light navbar-sticky">
+        <div class="container px-3">
+          <a href="../../index.html" class="navbar-brand pe-3">
+            ABC Learning
+          </a>
+          <div id="navbarNav" class="offcanvas offcanvas-end">
+            <div class="offcanvas-header border-bottom">
+              <h5 class="offcanvas-title">Menu</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                  <a href="../../index.html" class="nav-link" aria-current="page">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a href="../../about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Course</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="../courses/detail-courses-1.html" class="dropdown-item">Web Development</a></li>
+                    <li><a href="../courses/detail-courses-2.html" class="dropdown-item">Programming in Java</a></li>
+                    <li><a href="../courses/detail-courses-3.html" class="dropdown-item">Software Engineering</a></li>
+                    <li><a href="../courses/detail-courses-4.html" class="dropdown-item">MS. Office</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a href="../../contact.html" class="nav-link">Contact</a>
+                </li>
+              </ul>
+            </div>
+            <div class="offcanvas-header border-top">
+              <a href="../../signin.html" class="btn btn-primary w-100" target="_blank" rel="noopener">
+                Login
+              </a>
+            </div>      
+          </div>
+          <div class="form-check form-switch mode-switch pe-lg-1 ms-auto me-4" data-bs-toggle="mode">
+            <input type="checkbox" class="form-check-input" id="theme-mode">
+            <label class="form-check-label d-none d-sm-block" for="theme-mode">Light</label>
+            <label class="form-check-label d-none d-sm-block" for="theme-mode">Dark</label>
+          </div>
+          <button type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a href="../../signin.html" class="btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex" target="_blank" rel="noopener">
+            Login
+          </a>
+        </div>
+      </header>
+
+
+      <!-- Schedule -->
+      <section class="container py-5">
+        <div class="row mt-xl-2 mb-xl-3 pb-3 py-md-4 py-lg-5">
+          <div class="col-12">
+            <h2 class="h1 text-center text-sm-start pb-2 pb-lg-0 mb-4 mb-lg-5">Schedule of MS. Office Course</h2>
+          </div>
+          <div class="col-lg-3 mb-4">
+
+            <!-- Nav tabs -->
+            <div class="nav flex-nowrap flex-lg-column nav-tabs" role="tablist" aria-orientation="vertical">
+              <a href="#day-1" class="nav-link d-block w-100 rounded-3 p-4 p-xl-5 me-2 me-sm-3 me-lg-0 mb-lg-3 active" id="day-1-tab" data-bs-toggle="tab" role="tab" aria-controls="day-1" aria-selected="true">
+                <div class="fs-xl">Day One</div>
+                <div class="fs-3 fw-bold">Jun 04, 2023</div>
+              </a>
+              <a href="#day-2" class="nav-link d-block w-100 rounded-3 p-4 p-xl-5" id="day-2-tab" data-bs-toggle="tab" role="tab" aria-controls="day-2" aria-selected="false">
+                <div class="fs-xl">Day Two</div>
+                <div class="fs-3 fw-bold">Jun 05, 2023</div>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-8 offset-lg-1">
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+
+              <!-- Day 1 schedule -->
+              <div class="tab-pane fade show active" id="day-1" role="tabpanel" aria-labelledby="day-1-tab">
+                <div class="border-bottom pb-4">
+                  <div class="row pb-1 pb-xl-3">
+                    <div class="col-sm-4 mb-3 mb-sm-0">
+                      <div class="h5 mb-1">9:30 – 10:30 am</div>
+                      <p class="text-muted mb-0">October 14th</p>
+                    </div>
+                    <div class="col-sm-8">
+                      <h5 class="mb-0">Introduction Mentors</h5>
+                    </div>
+                  </div>
+                </div>
+                <div class="border-bottom py-4">
+                  <div class="row py-1 py-xl-3">
+                    <div class="col-sm-4 mb-3 mb-sm-0">
+                      <div class="h5 mb-1">10:30 – 11:30 am</div>
+                      <p class="text-muted mb-2 mb-sm-4">October 14th</p>
+                      <span class="badge bg-warning shadow-warning fs-sm">Lecture</span>
+                    </div>
+                    <div class="col-sm-8">
+                      <h5>Start Learning with MS. Office part 1</h5>
+                      <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent in mi diam. Suspendisse dictum pharetra viverra.</p>
+                      <div class="d-flex align-items-center">
+                        <img src="../../assets/img/avatar/41.jpg" class="rounded-circle" width="48" alt="Marvin McKinney">
+                        <div class="ps-3">
+                          <h6 class="fw-semibold mb-1">Mentor</h6>
+                          <p class="fs-sm text-muted mb-0">Product Manager, Google</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="border-bottom py-4">
+                  <div class="row py-1 py-xl-3">
+                    <div class="col-sm-4 mb-3 mb-sm-0">
+                      <div class="h5 mb-1">11:30 am – 13:00 pm</div>
+                      <p class="text-muted mb-2 mb-sm-4">October 14th</p>
+                      <span class="badge bg-success shadow-success fs-sm">Workshop</span>
+                    </div>
+                    <div class="col-sm-8">
+                      <h5>Start Learning with MS. Office part 2</h5>
+                      <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent in mi diam. Suspendisse dictum pharetra viverra.</p>
+                      <div class="row row-cols-1 row-cols-md-2 g-3">
+                        <div class="col">
+                          <div class="d-flex align-items-center">
+                            <img src="../../assets/img/avatar/01.jpg" class="rounded-circle" width="48" alt="Jerome Bell">
+                            <div class="ps-3">
+                              <h6 class="fw-semibold mb-1">Mentor</h6>
+                              <p class="fs-sm text-muted mb-0">Strategic Advisor, Shopify</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="d-flex align-items-center">
+                            <img src="../../assets/img/avatar/06.jpg" class="rounded-circle" width="48" alt="Jenny Wilson">
+                            <div class="ps-3">
+                              <h6 class="fw-semibold mb-1">Mentor</h6>
+                              <p class="fs-sm text-muted mb-0">UX Designer, Glassdoor</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="border-bottom py-4">
+                  <div class="row py-1 py-xl-3">
+                    <div class="col-sm-4 mb-3 mb-sm-0">
+                      <div class="h5 mb-1">13:00 – 14:00 pm</div>
+                      <p class="text-muted mb-0">October 14th</p>
+                    </div>
+                    <div class="col-sm-8">
+                      <h5 class="mb-0">Break Time</h5>
+                    </div>
+                  </div>
+                </div>
+                <div class="border-bottom py-4">
+                  <div class="row py-1 py-xl-3">
+                    <div class="col-sm-4 mb-3 mb-sm-0">
+                      <div class="h5 mb-1">14:00 – 16:00 pm</div>
+                      <p class="text-muted mb-2 mb-sm-4">October 14th</p>
+                      <span class="badge bg-warning shadow-warning fs-sm">Lecture</span>
+                    </div>
+                    <div class="col-sm-8">
+                      <h5>Group discussion: MS. Office</h5>
+                      <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent in mi diam. Suspendisse dictum pharetra viverra.</p>
+                      <div class="row row-cols-1 row-cols-md-2 g-3">
+                        <div class="col">
+                          <div class="d-flex align-items-center">
+                            <img src="../../assets/img/avatar/02.jpg" class="rounded-circle" width="48" alt="Ralph Edwards">
+                            <div class="ps-3">
+                              <h6 class="fw-semibold mb-1">Mentor</h6>
+                              <p class="fs-sm text-muted mb-0">Founder &amp; CEO, Uber</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="d-flex align-items-center">
+                            <img src="../../assets/img/avatar/05.jpg" class="rounded-circle" width="48" alt="Albert Flores">
+                            <div class="ps-3">
+                              <h6 class="fw-semibold mb-1">Mentor</h6>
+                              <p class="fs-sm text-muted mb-0">Principal Consultant, Twitch</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="d-flex align-items-center">
+                            <img src="../../assets/img/avatar/03.jpg" class="rounded-circle" width="48" alt="Esther Howard">
+                            <div class="ps-3">
+                              <h6 class="fw-semibold mb-1">Mentor</h6>
+                              <p class="fs-sm text-muted mb-0">VP of Strategy, Stretto Inc.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="border-bottom py-4">
+                  <div class="row py-1 py-xl-3">
+                    <div class="col-sm-4 mb-3 mb-sm-0">
+                      <div class="h5 mb-1">16:00 – 17:00 pm</div>
+                      <p class="text-muted mb-2 mb-sm-4">October 14th</p>
+                      <span class="badge bg-info shadow-info fs-sm">E-Learning</span>
+                    </div>
+                    <div class="col-sm-8">
+                      <h5>E-Learning: Schedule e-learning 1</h5>
+                      <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent in mi diam. Suspendisse dictum pharetra viverra.</p>
+                      <div class="d-flex align-items-center">
+                        <img src="../../assets/img/avatar/07.jpg" class="rounded-circle" width="48" alt="Cameron Williamson">
+                        <div class="ps-3">
+                          <h6 class="fw-semibold mb-1">Mentor</h6>
+                          <p class="fs-sm text-muted mb-0">Co-Founder, Google</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+
+              <!-- Day 2 schedule -->
+              <div class="tab-pane fade show active" id="day-1" role="tabpanel" aria-labelledby="day-1-tab">
+                <div class="border-bottom pb-4">
+                  <div class="row pb-1 pb-xl-3">
+                    <div class="col-sm-4 mb-3 mb-sm-0">
+                      <div class="h5 mb-1">9:30 – 10:30 am</div>
+                      <p class="text-muted mb-0">October 14th</p>
+                    </div>
+                    <div class="col-sm-8">
+                      <h5 class="mb-0">Start with E-Learning</h5>
+                    </div>
+                  </div>
+                </div>
+                <div class="border-bottom py-4">
+                  <div class="row py-1 py-xl-3">
+                    <div class="col-sm-4 mb-3 mb-sm-0">
+                      <div class="h5 mb-1">10:30 – 11:30 am</div>
+                      <p class="text-muted mb-2 mb-sm-4">October 14th</p>
+                      <span class="badge bg-warning shadow-warning fs-sm">Lecture</span>
+                    </div>
+                    <div class="col-sm-8">
+                      <h5>Start Learning with MS. Office part 3</h5>
+                      <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent in mi diam. Suspendisse dictum pharetra viverra.</p>
+                      <div class="d-flex align-items-center">
+                        <img src="../../assets/img/avatar/41.jpg" class="rounded-circle" width="48" alt="Marvin McKinney">
+                        <div class="ps-3">
+                          <h6 class="fw-semibold mb-1">Mentor</h6>
+                          <p class="fs-sm text-muted mb-0">Product Manager, Google</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="border-bottom py-4">
+                  <div class="row py-1 py-xl-3">
+                    <div class="col-sm-4 mb-3 mb-sm-0">
+                      <div class="h5 mb-1">11:30 am – 13:00 pm</div>
+                      <p class="text-muted mb-2 mb-sm-4">October 14th</p>
+                      <span class="badge bg-success shadow-success fs-sm">Workshop</span>
+                    </div>
+                    <div class="col-sm-8">
+                      <h5>Start Learning with MS. Office part 4</h5>
+                      <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent in mi diam. Suspendisse dictum pharetra viverra.</p>
+                      <div class="row row-cols-1 row-cols-md-2 g-3">
+                        <div class="col">
+                          <div class="d-flex align-items-center">
+                            <img src="../../assets/img/avatar/01.jpg" class="rounded-circle" width="48" alt="Jerome Bell">
+                            <div class="ps-3">
+                              <h6 class="fw-semibold mb-1">Mentor</h6>
+                              <p class="fs-sm text-muted mb-0">Strategic Advisor, Shopify</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="d-flex align-items-center">
+                            <img src="../../assets/img/avatar/06.jpg" class="rounded-circle" width="48" alt="Jenny Wilson">
+                            <div class="ps-3">
+                              <h6 class="fw-semibold mb-1">Mentor</h6>
+                              <p class="fs-sm text-muted mb-0">UX Designer, Glassdoor</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="border-bottom py-4">
+                  <div class="row py-1 py-xl-3">
+                    <div class="col-sm-4 mb-3 mb-sm-0">
+                      <div class="h5 mb-1">13:00 – 14:00 pm</div>
+                      <p class="text-muted mb-0">October 14th</p>
+                    </div>
+                    <div class="col-sm-8">
+                      <h5 class="mb-0">Break Time</h5>
+                    </div>
+                  </div>
+                </div>
+                <div class="border-bottom py-4">
+                  <div class="row py-1 py-xl-3">
+                    <div class="col-sm-4 mb-3 mb-sm-0">
+                      <div class="h5 mb-1">14:00 – 16:00 pm</div>
+                      <p class="text-muted mb-2 mb-sm-4">October 14th</p>
+                      <span class="badge bg-warning shadow-warning fs-sm">Lecture</span>
+                    </div>
+                    <div class="col-sm-8">
+                      <h5>Start Learning with MS. Office part 5</h5>
+                      <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent in mi diam. Suspendisse dictum pharetra viverra.</p>
+                      <div class="row row-cols-1 row-cols-md-2 g-3">
+                        <div class="col">
+                          <div class="d-flex align-items-center">
+                            <img src="../../assets/img/avatar/02.jpg" class="rounded-circle" width="48" alt="Ralph Edwards">
+                            <div class="ps-3">
+                              <h6 class="fw-semibold mb-1">Mentor</h6>
+                              <p class="fs-sm text-muted mb-0">Founder &amp; CEO, Uber</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="d-flex align-items-center">
+                            <img src="../../assets/img/avatar/05.jpg" class="rounded-circle" width="48" alt="Albert Flores">
+                            <div class="ps-3">
+                              <h6 class="fw-semibold mb-1">Mentor</h6>
+                              <p class="fs-sm text-muted mb-0">Principal Consultant, Twitch</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="d-flex align-items-center">
+                            <img src="../../assets/img/avatar/03.jpg" class="rounded-circle" width="48" alt="Esther Howard">
+                            <div class="ps-3">
+                              <h6 class="fw-semibold mb-1">Mentor</h6>
+                              <p class="fs-sm text-muted mb-0">VP of Strategy, Stretto Inc.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="border-bottom py-4">
+                  <div class="row py-1 py-xl-3">
+                    <div class="col-sm-4 mb-3 mb-sm-0">
+                      <div class="h5 mb-1">16:00 – 17:00 pm</div>
+                      <p class="text-muted mb-2 mb-sm-4">October 14th</p>
+                      <span class="badge bg-info shadow-info fs-sm">E-Learning</span>
+                    </div>
+                    <div class="col-sm-8">
+                      <h5>Group discussion: MS. Office</h5>
+                      <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent in mi diam. Suspendisse dictum pharetra viverra.</p>
+                      <div class="d-flex align-items-center">
+                        <img src="../../assets/img/avatar/07.jpg" class="rounded-circle" width="48" alt="Cameron Williamson">
+                        <div class="ps-3">
+                          <h6 class="fw-semibold mb-1">Mentor</h6>
+                          <p class="fs-sm text-muted mb-0">Co-Founder, Google</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- Course author -->
+      <section class="container py-lg-4 py-xl-5 mt-3 mb-5">
+        <div class="row g-0 bg-dark bg-repeat-0 bg-position-center border rounded-3 overflow-hidden" style="background-image: url(../../assets/img/portfolio/courses/author-pattern.svg);">
+          <div class="col-md-5 bg-repeat-0 bg-position-top-center bg-size-cover" style="background-image: url(../../assets/img/portfolio/courses/author.jpg); min-height: 350px;"></div>
+          <div class="col-md-7 py-xl-5 px-4">
+            <div class="py-5 mx-auto" style="max-width: 530px;">
+              <div class="fs-xl text-light opacity-50 mb-2">Learn from the best</div>
+              <h2 class="h1 text-light mb-4">Mentor</h2>
+              <p class="text-light opacity-70 pb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent in mi diam. Suspendisse dictum pharetra viverra. consectetur adipiscing elit. Praesent in mi diam. Suspendisse dictum pharetra viverra. consectetur adipiscing elit. Praesent in mi diam. Suspendisse dictum pharetra viverra.</p>
+              <div class="d-flex flex-column flex-sm-row">
+                <a href="#" class="btn btn-danger me-sm-4 mb-3 mb-sm-0">
+                  <i class="bx bxl-youtube fs-xl me-2"></i>
+                  240k subscribers
+                </a>
+                <a href="#" class="btn btn-info">
+                  <i class="bx bxl-facebook-square fs-xl me-2"></i>
+                  180k followers
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- Related courses (Carousel on narrow screens) -->
+      <section class="bg-secondary pt-5 pb-4 pb-lg-5">
+        <div class="container py-2 pt-lg-4 pb-lg-0">
+          <h2 class="h1 text-center pb-4">More courses like this</h2>
+          <div class="swiper mx-n2" data-swiper-options='{
+            "slidesPerView": 1,
+            "spaceBetween": 8,
+            "pagination": {
+              "el": ".swiper-pagination",
+              "clickable": true
+            },
+            "breakpoints": {
+              "560": {
+                "slidesPerView": 2
+              },
+              "1000": {
+                "slidesPerView": 3
+              }
+            }
+          }'>
+            <div class="swiper-wrapper">
+
+              <!-- Item -->
+              <div class="swiper-slide h-auto pb-3">
+                <article class="card h-100 border-0 shadow-sm mx-2">
+                  <div class="position-relative">
+                    <a href="#" class="d-block position-absolute w-100 h-100 top-0 start-0"></a>
+                    <a href="#" class="btn btn-icon btn-light bg-white border-white btn-sm rounded-circle position-absolute top-0 end-0 zindex-2 me-3 mt-3" data-bs-toggle="tooltip" data-bs-placement="left" title="Save to Favorites">
+                      <i class="bx bx-bookmark"></i>
+                    </a>
+                    <img src="../../assets/img/portfolio/courses/02.jpg" class="card-img-top" alt="Image">
+                  </div>
+                  <div class="card-body pb-3">
+                    <h3 class="h5 mb-2">
+                      <a href="#">HTML, CSS, JavaScript Web Developer</a>
+                    </h3>
+                    <p class="fs-sm mb-2">By Jenny Wilson &amp; Marvin McKinney</p>
+                    <p class="fs-lg fw-semibold text-primary mb-0">$15.99</p>
+                  </div>
+                  <div class="card-footer d-flex align-items-center fs-sm text-muted py-4">
+                    <div class="d-flex align-items-center me-4">
+                      <i class="bx bx-time fs-xl me-1"></i>
+                      160 hours
+                    </div>
+                    <div class="d-flex align-items-center">
+                      <i class="bx bx-like fs-xl me-1"></i>
+                      92% (3.1K)
+                    </div>
+                  </div>
+                </article>
+              </div>
+
+              <!-- Item -->
+              <div class="swiper-slide h-auto pb-3">
+                <article class="card h-100 border-0 shadow-sm mx-2">
+                  <div class="position-relative">
+                    <a href="#" class="d-block position-absolute w-100 h-100 top-0 start-0"></a>
+                    <span class="badge bg-danger position-absolute top-0 start-0 zindex-2 mt-3 ms-3">Sale!</span>
+                    <a href="#" class="btn btn-icon btn-light bg-white border-white btn-sm rounded-circle position-absolute top-0 end-0 zindex-2 me-3 mt-3" data-bs-toggle="tooltip" data-bs-placement="left" title="Save to Favorites">
+                      <i class="bx bx-bookmark"></i>
+                    </a>
+                    <img src="../../assets/img/portfolio/courses/03.jpg" class="card-img-top" alt="Image">
+                  </div>
+                  <div class="card-body pb-3">
+                    <h3 class="h5 mb-2">
+                      <a href="#">HTML, CSS, JavaScript Web Developer</a>
+                    </h3>
+                    <p class="fs-sm mb-2">By Robert Fox</p>
+                    <p class="text-muted mb-0"><span class="fs-lg fw-semibold text-danger me-2">$9.99</span><del>$44.99</del></p>
+                  </div>
+                  <div class="card-footer d-flex align-items-center fs-sm text-muted py-4">
+                    <div class="d-flex align-items-center me-4">
+                      <i class="bx bx-time fs-xl me-1"></i>
+                      210 hours
+                    </div>
+                    <div class="d-flex align-items-center">
+                      <i class="bx bx-like fs-xl me-1"></i>
+                      98% (2.7K)
+                    </div>
+                  </div>
+                </article>
+              </div>
+
+              <!-- Item -->
+              <div class="swiper-slide h-auto pb-3">
+                <article class="card h-100 border-0 shadow-sm mx-2">
+                  <div class="position-relative">
+                    <a href="#" class="d-block position-absolute w-100 h-100 top-0 start-0"></a>
+                    <a href="#" class="btn btn-icon btn-light bg-white border-white btn-sm rounded-circle position-absolute top-0 end-0 zindex-2 me-3 mt-3" data-bs-toggle="tooltip" data-bs-placement="left" title="Save to Favorites">
+                      <i class="bx bx-bookmark"></i>
+                    </a>
+                    <img src="../../assets/img/portfolio/courses/09.jpg" class="card-img-top" alt="Image">
+                  </div>
+                  <div class="card-body pb-3">
+                    <h3 class="h5 mb-2">
+                      <a href="#">Learn JMETER from Scratch on Live Apps-Performance Testing</a>
+                    </h3>
+                    <p class="fs-sm mb-2">By Jenny Wilson</p>
+                    <p class="fs-lg fw-semibold text-primary mb-0">$14.50</p>
+                  </div>
+                  <div class="card-footer d-flex align-items-center fs-sm text-muted py-4">
+                    <div class="d-flex align-items-center me-4">
+                      <i class="bx bx-time fs-xl me-1"></i>
+                      120 hours
+                    </div>
+                    <div class="d-flex align-items-center">
+                      <i class="bx bx-like fs-xl me-1"></i>
+                      92% (3.8K)
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <!-- Pagination (bullets) -->
+            <div class="swiper-pagination position-relative pt-2 pt-sm-3 mt-4"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="footer py-5">
+      <div class="container text-center pt-2 pt-sm-3">
+        <div class="navbar-brand d-inline-block text-dark p-0 me-0 mb-4 pb-md-2">
+          ABC Learning
+        </div>
+        <ul class="nav align-items-center justify-content-center mb-4 pb-1 pb-md-3">
+          <li class="nav-item mx-lg-1 px-md-2">
+            <a href="index.html" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item mx-lg-1 px-md-2">
+            <a href="about.html" class="nav-link">About</a>
+          </li>
+          <li class="nav-item mx-lg-1 px-md-2">
+            <a href="sitemap.html" class="nav-link">Sitemap</a>
+          </li>
+          <li class="nav-item mx-lg-1 px-md-2">
+            <a href="privacy-policy.html" class="nav-link">Privacy & Policy</a>
+          </li>
+          <li class="nav-item mx-lg-1 px-md-2">
+            <a href="contact.html" class="nav-link">Contact</a>
+          </li>
+          <li class="nav-item mx-lg-1 px-md-2">
+            <a href="signin.html" class="nav-link">Account</a>
+          </li>
+        </ul>
+        <div class="d-inline-block mt-n3 ms-n3 pb-2 pb-md-3 mb-4 mb-lg-5">
+          <a href="#" class="btn btn-icon btn-secondary btn-facebook mt-3 ms-3">
+            <i class="bx bxl-facebook-square"></i>
+          </a>
+          <a href="#" class="btn btn-icon btn-secondary btn-twitter mt-3 ms-3">
+            <i class="bx bxl-twitter"></i>
+          </a>
+          <a href="#" class="btn btn-icon btn-secondary btn-instagram mt-3 ms-3">
+            <i class="bx bxl-instagram"></i>
+          </a>
+          <a href="#" class="btn btn-icon btn-secondary btn-youtube mt-3 ms-3">
+            <i class="bx bxl-youtube"></i>
+          </a>
+        </div>
+        <p class="mb-0 mx-auto fs-sm text-muted" style="max-width: 53.5rem">&copy; All rights reserved. Lorem odio justo malesuada suspendisse viverra aliquet quisque turpis non. Feugiat in odio non nunc ornare consectetur.</p>
+      </div>
+    </footer>
+
+
+    <!-- Back to top button -->
+    <a href="#top" class="btn-scroll-top" data-scroll>
+      <span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span>
+      <i class="btn-scroll-top-icon bx bx-chevron-up"></i>
+    </a>
+
+
+    <!-- Vendor Scripts -->
+    <script src="../../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js"></script>
+    <script src="../../assets/vendor/jarallax/dist/jarallax.min.js"></script>
+    <script src="../../assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Main Theme Script -->
+    <script src="../../assets/js/theme.min.js"></script>
+  </body>
+</html>
