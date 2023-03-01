@@ -3,8 +3,6 @@ $(function () {
 
     });
 
-    // Registration - Collect it in an array 
-    // Store the array in local storage as json object 
 function formValidation() {
     // Get the HTML elements
     var userId = GetUserID();
